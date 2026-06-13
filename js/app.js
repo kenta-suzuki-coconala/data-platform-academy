@@ -94,8 +94,9 @@ function enhanceProse(root) {
     if (lang === 'mermaid') {
       const div = document.createElement('div');
       div.className = 'mermaid';
-      // mermaid11 はラベル内 "1. xxx" を markdown の番号付きリストと誤認するため "1) xxx" に正規化
-      div.textContent = code.textContent.replace(/([\[\|>{(])(\s*)(\d+)\.\s/g, '$1$2$3) ');
+      // mermaid11 はラベル内 "1. xxx" を markdown の番号付きリストと誤認する。
+      // 半角ピリオドを全角に変えればリスト判定を回避でき、括弧等の構文も壊さない。
+      div.textContent = code.textContent.replace(/(\d+)\.[ \t]+/g, '$1． ');
       pre.replaceWith(div);
       return;
     }
