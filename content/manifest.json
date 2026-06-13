@@ -1,0 +1,82 @@
+{
+  "site": {
+    "title": "Datable",
+    "subtitle": "腐らないデータ基盤を、ゼロから実装できるようになる無料コース",
+    "repo": "data-platform-academy"
+  },
+  "parts": [
+    {
+      "id": "p0",
+      "title": "はじめに",
+      "tagline": "なぜデータ基盤は腐るのか",
+      "lessons": [
+        { "id": "00-welcome", "title": "ようこそ — このコースの歩き方", "minutes": 6 },
+        { "id": "01-why-rot", "title": "なぜデータ基盤は腐るのか — 4つの失敗モード", "minutes": 12 }
+      ]
+    },
+    {
+      "id": "p1",
+      "title": "基礎",
+      "tagline": "データが流れる全体像をつかむ",
+      "lessons": [
+        { "id": "10-what-is-dataplatform", "title": "データ基盤とは何か — 登場人物と役割", "minutes": 12 },
+        { "id": "11-architecture", "title": "アーキテクチャ全体像 — 収集・蓄積・変換・提供", "minutes": 14 },
+        { "id": "12-storage", "title": "ストレージ層 — DWH・データレイク・レイクハウス", "minutes": 13 },
+        { "id": "13-etl-vs-elt", "title": "ETL vs ELT と現代データスタック", "minutes": 12 }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": "モデリング",
+      "tagline": "変わっても壊れない構造を作る",
+      "lessons": [
+        { "id": "20-modeling-basics", "title": "データモデリング入門 — 正規化と非正規化", "minutes": 14 },
+        { "id": "21-dimensional", "title": "次元モデリングとスタースキーマ", "minutes": 16 },
+        { "id": "22-layering", "title": "レイヤリング設計 — staging / intermediate / marts", "minutes": 14 }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": "パイプライン",
+      "tagline": "再実行できる流れを設計する",
+      "lessons": [
+        { "id": "30-ingestion", "title": "データ収集 — バッチ・ストリーム・CDC", "minutes": 13 },
+        { "id": "31-transformation", "title": "変換とモジュール設計 — dbt 的な考え方", "minutes": 15 },
+        { "id": "32-orchestration", "title": "オーケストレーション — DAG と依存・再実行", "minutes": 14 },
+        { "id": "33-incremental", "title": "増分処理と冪等性の実装", "minutes": 15 }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": "品質と信頼",
+      "tagline": "壊れたことに気づける基盤に",
+      "lessons": [
+        { "id": "40-testing", "title": "データテスト — not null・unique・関係性", "minutes": 13 },
+        { "id": "41-data-contracts", "title": "データ契約 — Data Contracts", "minutes": 14 },
+        { "id": "42-schema-evolution", "title": "スキーマ進化と後方互換", "minutes": 13 },
+        { "id": "43-observability", "title": "データ可観測性 — freshness・volume・SLA/SLO", "minutes": 13 }
+      ]
+    },
+    {
+      "id": "p5",
+      "title": "腐らせない設計",
+      "tagline": "4つの失敗モードへの処方箋",
+      "lessons": [
+        { "id": "50-discoverability", "title": "発見可能性 — 「作ったけど使われない」への処方", "minutes": 14 },
+        { "id": "51-self-serve", "title": "セルフサーブと民主化 — 「価値がチームに閉じる」への処方", "minutes": 15 },
+        { "id": "52-governance", "title": "ガバナンスと契約 — 「想定外の使い方」への処方", "minutes": 14 },
+        { "id": "53-versioning", "title": "バージョニングと廃止 — 「使われすぎて変更できない」への処方", "minutes": 15 },
+        { "id": "54-data-products", "title": "データプロダクトとデータメッシュ — 統合の視点", "minutes": 14 }
+      ]
+    },
+    {
+      "id": "p6",
+      "title": "実践",
+      "tagline": "手を動かして腐らない基盤を組む",
+      "lessons": [
+        { "id": "60-playground-guide", "title": "Playground の使い方", "minutes": 8 },
+        { "id": "61-capstone", "title": "キャップストーン — 腐らないデータマートを設計する", "minutes": 20 }
+      ]
+    }
+  ]
+}
