@@ -1,0 +1,36 @@
+name: 🐛 不具合の報告
+description: 表示崩れ・図のエラー・リンク切れ・Playground の不具合など
+title: "[不具合] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        報告ありがとうございます。再現できるよう、わかる範囲で埋めてください（空欄でも歓迎です）。
+  - type: input
+    id: page
+    attributes:
+      label: 発生したページ
+      description: 画面右下の「フィードバック」から開くと自動で入ります。
+      placeholder: "https://kenta-suzuki-coconala.github.io/data-platform-academy/#/learn/01-why-rot"
+  - type: textarea
+    id: what
+    attributes:
+      label: 何が起きましたか？
+      placeholder: 「腐敗の全体マップ」の図が Syntax error と表示される など
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 本来どうなってほしいですか？（任意）
+  - type: input
+    id: env
+    attributes:
+      label: 環境（ブラウザ / OS）
+      placeholder: "Chrome 125 / macOS"
+  - type: textarea
+    id: extra
+    attributes:
+      label: スクリーンショット・補足（任意）
+      description: 画像はこの欄にドラッグ＆ドロップで添付できます。

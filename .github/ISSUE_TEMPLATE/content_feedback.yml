@@ -1,0 +1,33 @@
+name: 💬 内容へのフィードバック
+description: 説明の誤り・わかりにくさ・追加してほしいトピックなど
+title: "[内容] "
+labels: ["content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        コースをより良くするための意見、歓迎します。
+  - type: input
+    id: page
+    attributes:
+      label: 対象のレッスン / ページ
+      placeholder: "https://kenta-suzuki-coconala.github.io/data-platform-academy/#/learn/21-dimensional"
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 種類
+      options:
+        - 内容の誤り・不正確
+        - わかりにくい・説明不足
+        - 追加してほしいトピック
+        - 誤字・表記
+        - その他
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: 詳細
+      placeholder: どの記述が、なぜ気になったか
+    validations:
+      required: true

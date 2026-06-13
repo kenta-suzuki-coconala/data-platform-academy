@@ -335,6 +335,7 @@ async function render() {
   await loadManifest();
   const hash = location.hash || '#/';
   closeMobileNav();
+  updateFeedback();
 
   if (hash === '#/' || hash === '') {
     setActiveTopnav('home');
@@ -404,6 +405,31 @@ function buildToc(heads) {
   heads.forEach((h) => { const el = document.getElementById(h.id); if (el) obs.observe(el); });
 }
 
+// ---------- feedback widget ----------
+const REPO_ISSUES = 'https://github.com/kenta-suzuki-coconala/data-platform-academy/issues/new';
+function buildFeedback() {
+  if ($('#fab')) return;
+  const el = document.createElement('div');
+  el.className = 'fab'; el.id = 'fab';
+  el.innerHTML = `
+    <div class="fab-menu" id="fabMenu" hidden>
+      <a class="fab-item" id="fabBug" target="_blank" rel="noopener">${icon('i-alert')} 不具合を報告</a>
+      <a class="fab-item" id="fabContent" target="_blank" rel="noopener">${icon('i-bulb')} 内容への意見</a>
+    </div>
+    <button class="fab-toggle" id="fabToggle" aria-label="フィードバック">${icon('i-bulb')}<span>フィードバック</span></button>`;
+  document.body.appendChild(el);
+  const menu = $('#fabMenu');
+  $('#fabToggle').addEventListener('click', (e) => { e.stopPropagation(); menu.hidden = !menu.hidden; });
+  document.addEventListener('click', (e) => { if (!el.contains(e.target)) menu.hidden = true; });
+  updateFeedback();
+}
+function updateFeedback() {
+  const page = encodeURIComponent(location.href);
+  const bug = $('#fabBug'); const content = $('#fabContent');
+  if (bug) bug.href = `${REPO_ISSUES}?template=bug_report.yml&page=${page}`;
+  if (content) content.href = `${REPO_ISSUES}?template=content_feedback.yml&page=${page}`;
+}
+
 // ---------- mobile nav ----------
 function openMobileNav() { $('#sidebar')?.classList.add('open'); $('#scrim')?.classList.add('open'); }
 function closeMobileNav() { $('#sidebar')?.classList.remove('open'); $('#scrim')?.classList.remove('open'); }
@@ -425,6 +451,7 @@ function boot() {
   });
   $('#scrim').addEventListener('click', closeMobileNav);
   window.addEventListener('hashchange', render);
+  buildFeedback();
   render();
 }
 
